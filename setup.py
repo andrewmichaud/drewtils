@@ -1,4 +1,4 @@
-"""setuptools-based setup module for drewtils."""
+"""setuptools-based setup module for drewtilities."""
 from os import path
 from setuptools import setup, find_packages
 
@@ -10,7 +10,7 @@ with open(path.join(HERE, "README.rst")) as f:
 with open(path.join(HERE, "VERSION")) as f:
     VERSION = f.read().strip()
 
-URL = "https://github.com/andrewmichaud/drewtils"
+URL = "https://github.com/andrewmichaud/drewtilities"
 
 INSTALL_REQUIRES = ["clint>=0.5.1, <0.6.0",
                     "requests>=2.18.4, <3.0.0",
@@ -35,7 +35,7 @@ setup(author="Andrew Michaud",
                    "Topic :: Software Development :: Libraries"
                   ],
 
-      name="drewtils",
+      name="drewtilities",
       description="Simple utilities for dev work.",
       download_url=f"{URL}/archive/v{VERSION}.tar.gz",
       url=f"{URL}",
@@ -43,7 +43,7 @@ setup(author="Andrew Michaud",
       license="BSD3",
 
       entry_points={
-          "console_scripts": ["drewtils = drewtils.__main__:main"]
+          "console_scripts": ["drewtilities = drewtilities.__main__:main"]
       },
 
       package_data={

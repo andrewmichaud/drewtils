@@ -3,9 +3,9 @@ import timeit
 
 import requests
 
-import drewtils as util
+import drewtilties as util
 
-TEST_URL = "https://raw.githubusercontent.com/andrewmichaud/drewtils/master/LICENSE"
+TEST_URL = "https://raw.githubusercontent.com/andrewmichaud/drewtilities/master/LICENSE"
 
 
 def test_parse_int_string() -> None:

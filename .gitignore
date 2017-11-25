@@ -7,7 +7,7 @@
 
 build/
 dist/
-drewtils.egg-info
+drewtilities.egg-info
 bin
 include
 lib
