@@ -20,11 +20,11 @@ install:
 script:
     - |
       mypy \
-      drewtils \
+      drewtilities \
       --ignore-missing-imports --follow-imports=skip \
       --disallow-untyped-defs --incremental --warn-no-return --show-column-numbers
 
-    - coverage run --source=drewtils setup.py test
+    - coverage run --source=drewtilities setup.py test
     - coverage report -m
 
 after_success:
