@@ -46,10 +46,6 @@ setup(author="Andrew Michaud",
           "console_scripts": ["drewtilities = drewtilities.__main__:main"]
       },
 
-      package_data={
-          ".": ["VERSION"],
-      },
-
       setup_requires=["pytest-runner"],
       python_requires=">=3.6",
 
