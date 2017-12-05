@@ -3,7 +3,7 @@ import timeit
 
 import requests
 
-import drewtilties as util
+import drewtilities as util
 
 TEST_URL = "https://raw.githubusercontent.com/andrewmichaud/drewtilities/master/LICENSE"
 
