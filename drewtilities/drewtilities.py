@@ -14,6 +14,8 @@ import clint.textui as tui
 
 HERE = os.path.abspath(os.path.dirname(__file__))
 LOG = logging.getLogger("root")
+
+CHUNK_SIZE=1024
 FORCED_ENCODING = "UTF-8"
 LAST_CALLED: Dict[str, float] = {}
 
@@ -28,12 +30,13 @@ def expand(directory: str) -> str:
     temp1 = os.path.expanduser(directory)
     return os.path.expandvars(temp1)
 
-def generate_downloader(headers: Dict[str, str], args: Any) -> Callable[..., None]:
+def generate_downloader(headers: Dict[str, str], args: Any, max_per_hour=30
+                        ) -> Callable[..., None]:
     """Create function to download with rate limiting and text progress."""
 
     def _downloader(url: str, dest: str) -> None:
 
-        @rate_limited(30, args)
+        @rate_limited(max_per_hour, args)
         def _rate_limited_download() -> None:
 
             # Create parent directory of file, and its parents, if they don't exist.
@@ -45,9 +48,14 @@ def generate_downloader(headers: Dict[str, str], args: Any) -> Callable[..., Non
             LOG.info(f"Downloading from '{url}'.")
             LOG.info(f"Trying to save to '{dest}'.")
 
-            total_length = int(response.headers.get("content-length"))
-            expected_size = (total_length / 1024) + 1
-            chunks = response.iter_content(chunk_size=1024)
+            length = response.headers.get("content-length")
+            if length is None:
+                total_length = 0
+            else:
+                total_length = int(length)
+
+            expected_size = (total_length / CHUNK_SIZE) + 1
+            chunks = response.iter_content(chunk_size=CHUNK_SIZE)
 
             open(dest, "a", encoding=FORCED_ENCODING).close()
             # per http://stackoverflow.com/a/20943461
