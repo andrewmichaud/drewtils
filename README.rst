@@ -73,6 +73,7 @@ which will be used to identify this function in rate-limiting.
 use it to decide how many times per hour downloads can happen.
 The default is 30 times per hour.
 The returned downloader is called as follows:
+
 .. code-block:: python
 
     self.downloader(url=url, dest=dest)
@@ -105,6 +106,7 @@ Not necessarily sorted
 A decorator to rate-limit a function
 (ensures that it runs no more than :code:`max_per_hour` times per hour by sleeping sometimes).
 Called like this:
+
 .. code-block:: python
 
     @util.rate_limited(120, name)
