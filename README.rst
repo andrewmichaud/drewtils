@@ -61,7 +61,7 @@ Designed for UNIX-based platforms:
 unclear what will happen on others.
 
 -----------------------------------------------------------------
-:code:`generate_downloader(self, headers, args, max_per_hour=30)`
+:code:`generate_downloader(headers, args, max_per_hour=30)`
 -----------------------------------------------------------------
 Produce a callable downloader.
 Provide headers for URL call,
@@ -75,8 +75,9 @@ The default is 30 times per hour.
 The returned downloader is called as follows:
 
 .. code-block:: python
-
-    self.downloader(url=url, dest=dest)
+    
+    downloader = generate_downloader({"foo": "bar"}, "an identifier string")
+    downloader(url=url, dest=dest)
 
 where :code:`url` is where to download FROM and :code:`dest` is where to SAVE the file.
 It will make the directory for the file if it does not exist.
