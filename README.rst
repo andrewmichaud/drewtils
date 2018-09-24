@@ -9,21 +9,21 @@ drewtilities
 
 | |Issue Count|
 
-.. image:: https://badge.fury.io/py/puckfetcher.svg
-    :target: https://badge.fury.io/py/puckfetcher
+.. image:: https://badge.fury.io/py/drewtilities.svg
+    :target: https://badge.fury.io/py/drewtilities
 
-.. image:: https://badge.waffle.io/alixnovosi/puckfetcher.png?label=ready&title=Ready
-    :target: https://waffle.io/alixnovosi/puckfetcher
+.. image:: https://badge.waffle.io/alixnovosi/drewtilities.png?label=ready&title=Ready
+    :target: https://waffle.io/alixnovosi/drewtilities
     :alt: 'Stories in Ready'
 
 .. |BSD3 License| image:: http://img.shields.io/badge/license-BSD3-brightgreen.svg
    :target: https://tldrlegal.com/license/bsd-3-clause-license-%28revised%29
-.. |Build Status| image:: https://travis-ci.org/alixnovosi/puckfetcher.svg?branch=master
-   :target: https://travis-ci.org/alixnovosi/puckfetcher
-.. |Coverage Status| image:: https://coveralls.io/repos/alixnovosi/puckfetcher/badge.svg?branch=master&service=github
-   :target: https://coveralls.io/github/alixnovosi/puckfetcher?branch=master
-.. |Issue Count| image:: https://codeclimate.com/github/alixnovosi/puckfetcher/badges/issue_count.svg
-   :target: https://codeclimate.com/github/alixnovosi/puckfetcher
+.. |Build Status| image:: https://travis-ci.org/alixnovosi/drewtilities.svg?branch=master
+   :target: https://travis-ci.org/alixnovosi/drewtilities
+.. |Coverage Status| image:: https://coveralls.io/repos/alixnovosi/drewtilities/badge.svg?branch=master&service=github
+   :target: https://coveralls.io/github/alixnovosi/drewtilities?branch=master
+.. |Issue Count| image:: https://codeclimate.com/github/alixnovosi/drewtilities/badges/issue_count.svg
+   :target: https://codeclimate.com/github/alixnovosi/drewtilities
 
 =====
 short
