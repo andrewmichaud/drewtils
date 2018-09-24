@@ -10,30 +10,37 @@ with open(path.join(HERE, "README.rst")) as f:
 with open(path.join(HERE, "VERSION")) as f:
     VERSION = f.read().strip()
 
-URL = "https://github.com/andrewmichaud/drewtilities"
+URL = "https://github.com/alixnovosi/drewtilities"
 
-INSTALL_REQUIRES = ["clint>=0.5.1, <0.6.0",
-                    "requests>=2.18.4, <3.0.0",
-                   ]
+INSTALL_REQUIRES = [
+    "clint>=0.5.1, <0.6.0",
+    "requests>=2.19.1, <3.0.0",
+]
 
-TEST_REQUIRES = ["coveralls>=1.2.0, <2.0.0",
-                 "pytest>=3.2.5, <4.0.0",
-                ]
+SETUP_REQUIRES = [
+    "pytest-runner",
+]
+
+TEST_REQUIRES = [
+    "coveralls>=1.2.0, <2.0.0",
+    "pytest>=3.2.5, <4.0.0",
+]
 
 setup(author="Andrew Michaud",
       author_email="dev@mail.andrewmichaud.com",
 
-      classifiers=["Development Status :: 5 - Production/Stable",
-                   "Environment :: Console",
-                   "Intended Audience :: Developers",
-                   "License :: OSI Approved :: BSD License",
-                   "Natural Language :: English",
-                   "Operating System :: MacOS :: MacOS X",
-                   "Operating System :: POSIX :: Linux",
-                   "Programming Language :: Python :: 3.6",
-                   "Programming Language :: Python :: Implementation :: CPython",
-                   "Topic :: Software Development :: Libraries"
-                  ],
+      classifiers=[
+          "Development Status :: 5 - Production/Stable",
+           "Environment :: Console",
+           "Intended Audience :: Developers",
+           "License :: OSI Approved :: BSD License",
+           "Natural Language :: English",
+           "Operating System :: MacOS :: MacOS X",
+           "Operating System :: POSIX :: Linux",
+           "Programming Language :: Python :: 3.6",
+           "Programming Language :: Python :: Implementation :: CPython",
+           "Topic :: Software Development :: Libraries",
+      ],
 
       name="drewtilities",
       description="Simple utilities for dev work.",
@@ -50,11 +57,13 @@ setup(author="Andrew Michaud",
           ".": ["VERSION"],
       },
 
-      setup_requires=["pytest-runner"],
       python_requires=">=3.6",
 
       packages=find_packages(),
       long_description=LONG_DESCRIPTION,
+
       install_requires=INSTALL_REQUIRES,
+      setup_requires=SETUP_REQUIRES,
       tests_require=TEST_REQUIRES,
+
       version=VERSION)

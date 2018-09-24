@@ -1,0 +1,36 @@
+1.1.0 (2018-09-24)
+change download rate-limit, and some other cleanups
+* FEATURE
+    * generate_downloader will now let you provide a max_per_hour for its internal rate-limit
+      default is 30
+    * provide a nice README that describes the various functions provided here
+* DEV
+    * setup.py cleanups and new version pins
+    * make CHUNK_SIZE a variable
+
+1.0.5 (2017-12-05)
+Test fix.
+* DEV
+    * fix typo'd name in test
+
+1.0.4 (2017-11-26)
+various fixes
+* DEV
+    * fix travis.yml to fix install
+    * VERSION needed in package_data
+    * package needs to be drewtilities, not drewtils, to be on PyPI
+
+1.0.3 (2017-11-26)
+no change, forced update for test purposes
+
+1.0.2 (2017-11-25)
+remove VERSION from deploy
+* DEV
+    * We don't need to put VERSION in package_data
+
+1.0.1 (2017-11-25)
+initial migration
+* FEATURES
+    * initial migration from puckfetcher codebase
+* DEV
+    * add basic testing and CI setup
