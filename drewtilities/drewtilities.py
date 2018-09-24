@@ -30,7 +30,7 @@ def expand(directory: str) -> str:
     temp1 = os.path.expanduser(directory)
     return os.path.expandvars(temp1)
 
-def generate_downloader(headers: Dict[str, str], args: Any, max_per_hour=30
+def generate_downloader(headers: Dict[str, str], args: Any, max_per_hour: int=30
                         ) -> Callable[..., None]:
     """Create function to download with rate limiting and text progress."""
 
