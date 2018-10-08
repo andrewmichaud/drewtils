@@ -34,3 +34,22 @@ def test_rate_limiting() -> None:
 
     res = timeit.timeit(_test_helper, number=4)
     assert abs(res - 4) < 1.0
+
+def test_sanitize() -> None:
+    """Test sanitize on multiple platforms."""
+
+    test_filename = "asdfadfasdf"
+    assert test_filename == util.sanitize(test_filename)
+
+    # test posix replace
+    test_filename = "yoyoyo////"
+    expected = "yoyoyo----"
+    assert util.sanitize(test_filename, "linux") == expected
+
+    # test windows replace
+    test_filename = "a\\a:a*a?a\"a<a>a|a"
+    expected = "aÿa÷a¤a¿a¨a«a»a¦a"
+    assert util.sanitize(test_filename, "win32") == expected
+
+    # and test windows replace only happens when demanded
+    assert util.sanitize(test_filename, "asdf") == test_filename
