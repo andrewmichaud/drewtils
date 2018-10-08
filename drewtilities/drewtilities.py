@@ -141,12 +141,41 @@ def rate_limited(max_per_hour: int, *args: Any) -> Callable[..., Any]:
         return _rate_limited_function
     return _decorate
 
-def sanitize(filename: str) -> str:
+def sanitize(filename: str, platform: str=None) -> str:
     """
     Remove disallowed characters from potential filename. Currently only guaranteed on Linux and
     OS X.
     """
-    return filename.replace("/", "-")
+    win_map = {
+        # taken from samba Catia module.
+        # https://www.samba.org/samba/docs/current/man-html/vfs_catia.8.html
+        "\"": "¨",
+        "*": "¤",
+        "/": "ÿ",
+        ":": "÷",
+        "<": "«",
+        ">": "»",
+        "?": "¿",
+        "\\": "ÿ",
+        "|": "¦",
+    }
+
+    posix_map = {
+        "/": "-",
+    }
+
+    if platform is None:
+        platform = sys.platform
+
+    if platform.startswith("win32"):
+        replace_map = win_map
+    else:
+        replace_map = posix_map
+
+    for key, entry in replace_map.items():
+        filename = filename.replace(key, entry)
+
+    return filename
 
 def set_up_logging(log_filename: str = "log", verbosity: int = 0) ->logging.Logger:
     """Set up proper logging."""
