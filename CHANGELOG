@@ -1,3 +1,10 @@
+1.2.0 (2018-10-15)
+* FEATURE
+    * sanitize supports sanitizing for windows filenames.
+      disallowed characters are mapped to allowed characters.
+      see drewtilities/drewtilities.py for rules.
+      all other platforms only sanitize slashes to hyphens
+
 1.1.2 (2018-09-24)
 Another forced update to get README fix through.
 

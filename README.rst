@@ -60,9 +60,9 @@ in the provided path.
 Designed for UNIX-based platforms:
 unclear what will happen on others.
 
------------------------------------------------------------------
+-----------------------------------------------------------
 :code:`generate_downloader(headers, args, max_per_hour=30)`
------------------------------------------------------------------
+-----------------------------------------------------------
 Produce a callable downloader.
 Provide headers for URL call,
 and provide some args
@@ -75,7 +75,7 @@ The default is 30 times per hour.
 The returned downloader is called as follows:
 
 .. code-block:: python
-    
+
     downloader = generate_downloader({"foo": "bar"}, "an identifier string")
     downloader(url=url, dest=dest)
 
@@ -113,12 +113,12 @@ Called like this:
     @util.rate_limited(120, name)
     def a_function(var1, var2="foo"):
 
---------------------------
-:code:`sanitize(filename)`
---------------------------
+-----------------------------------------
+:code:`sanitize(filename, platform=None)`
+-----------------------------------------
 Remove disallowed characters from potential filename.
-Currently only guaranteed on Linux and OS X.
-Switches "/" for "-".
+Provide platform to sanitize for that platform,
+otherwise current platform is found and used.
 
 -------------------------------------------------------
 :code:`set_up_logging(log_filename="log", verbosity=0)`
