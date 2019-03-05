@@ -126,7 +126,7 @@ def rate_limited(max_per_hour: int, *args: Any) -> Callable[..., Any]:
             elapsed = now - last_called
             remaining = min_interval - elapsed
             LOG.debug(f"Rate limiter last called for '{key}' at {last_called}.")
-            LOG.debug(f"Remaining cooldown time for '{key}' is remaining.")
+            LOG.debug(f"Remaining cooldown time for '{key}' is {remaining}.")
 
             if remaining > 0 and last_called > 0.0:
                 LOG.info(f"Self-enforced rate limit hit, sleeping {remaining} seconds.")
