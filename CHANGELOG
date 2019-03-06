@@ -1,3 +1,11 @@
+1.2.2 (2019-03-05)
+1.2.1
+* BUGFIX
+    * Fix format string where we printed remaining instead of the remaining amount of time.
+
+* DEV
+    * Two updates to force a dependency update
+
 1.2.0 (2018-10-15)
 * FEATURE
     * sanitize supports sanitizing for windows filenames.

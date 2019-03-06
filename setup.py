@@ -14,7 +14,7 @@ URL = "https://github.com/alixnovosi/drewtilities"
 
 INSTALL_REQUIRES = [
     "clint>=0.5.1, <0.6.0",
-    "requests>=2.19.1, <3.0.0",
+    "requests>=2.21.0, <3.0.0",
 ]
 
 SETUP_REQUIRES = [
@@ -22,8 +22,8 @@ SETUP_REQUIRES = [
 ]
 
 TEST_REQUIRES = [
-    "coveralls>=1.2.0, <2.0.0",
-    "pytest>=3.2.5, <4.0.0",
+    "coveralls>=1.6.0, <2.0.0",
+    "pytest>=4.3.0, <5.0.0",
 ]
 
 setup(author="Andrew Michaud",
