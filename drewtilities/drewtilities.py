@@ -181,7 +181,7 @@ def set_up_logging(
         *,
         log_filename: str = "log",
         verbosity: int = 0,
-        use_date_logging = False,
+        use_date_logging: bool = False,
 ) ->logging.Logger:
     """Set up proper logging."""
 
@@ -190,6 +190,7 @@ def set_up_logging(
 
     logging.Formatter.converter = time.gmtime
 
+    handler: Any
     if use_date_logging:
         handler = TimedRotatingFileHandler(
             filename=log_filename,
@@ -208,7 +209,6 @@ def set_up_logging(
         fmt="%(asctime)s.%(msecs)03dZ - %(levelname)s - %(module)s - %(message)s",
         datefmt="%Y-%m-%dT%H:%M:%S",
     )
-    formatter.default_msec_format = "%s.%03d",
 
     handler.setFormatter(formatter)
     handler.setLevel(logging.DEBUG)
