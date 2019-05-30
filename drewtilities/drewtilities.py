@@ -1,6 +1,6 @@
 """Utility methods for Python packages (written with puckfetcher and botskeleton in mind)."""
 import logging
-from logging.handlers import RotatingFileHandler
+from logging.handlers import RotatingFileHandler, TimedRotatingFileHandler
 import math
 import os
 import random
@@ -177,16 +177,42 @@ def sanitize(filename: str, platform: str=None) -> str:
 
     return filename
 
-def set_up_logging(log_filename: str = "log", verbosity: int = 0) ->logging.Logger:
+def set_up_logging(
+        *,
+        log_filename: str = "log",
+        verbosity: int = 0,
+        use_date_logging = False,
+) ->logging.Logger:
     """Set up proper logging."""
+
+    # log everything verbosely
     LOG.setLevel(logging.DEBUG)
 
-    # Log everything verbosely to a file.
-    file_handler = RotatingFileHandler(filename=log_filename, maxBytes=1024000000, backupCount=10)
-    verbose_form = logging.Formatter(fmt="%(asctime)s - %(levelname)s - %(module)s - %(message)s")
-    file_handler.setFormatter(verbose_form)
-    file_handler.setLevel(logging.DEBUG)
-    LOG.addHandler(file_handler)
+    logging.Formatter.converter = time.gmtime
+
+    if use_date_logging:
+        handler = TimedRotatingFileHandler(
+            filename=log_filename,
+            when="S",
+            utc=True,
+        )
+
+    else:
+        handler = RotatingFileHandler(
+            filename=log_filename,
+            maxBytes=1024000000,
+            backupCount=10,
+        )
+
+    formatter = logging.Formatter(
+        fmt="%(asctime)s.%(msecs)03dZ - %(levelname)s - %(module)s - %(message)s",
+        datefmt="%Y-%m-%dT%H:%M:%S",
+    )
+    formatter.default_msec_format = "%s.%03d",
+
+    handler.setFormatter(formatter)
+    handler.setLevel(logging.DEBUG)
+    LOG.addHandler(handler)
 
     # Provide a stdout handler logging at INFO.
     stream_handler = logging.StreamHandler(sys.stdout)
