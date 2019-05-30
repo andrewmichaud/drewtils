@@ -194,7 +194,7 @@ def set_up_logging(
     if use_date_logging:
         handler = TimedRotatingFileHandler(
             filename=log_filename,
-            when="S",
+            when="D",
             utc=True,
         )
 
